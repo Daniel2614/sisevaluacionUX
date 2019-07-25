@@ -1,0 +1,119 @@
+
+	#Descripción{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+		
+	}
+	#Observaciones{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+	}
+	#Artículo{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+	}
+	#Unidad_de_medida{
+		min-width: 6rem;
+		max-width: 6rem;
+		overflow: hidden;
+	}
+	#Cantidad_anual{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}
+	#Costo_unitario{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}
+	#Costo_anual{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}
+	#Importe_anual{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}
+	#Concepto{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+	}
+	#Familia{
+		min-width: 10rem;
+		max-width: 10rem;
+		overflow: hidden;
+	} 
+	#No._Vehiculos{
+		min-width: 6rem;
+		max-width: 6rem;
+		overflow: hidden;
+	} 
+	#Tipo_de_producto{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+	} 
+	#Ubicación{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+	}  
+	#Tipo_de_servicio{
+		min-width: 15rem;
+		max-width: 15rem;
+		overflow: hidden;
+	}  
+	#No._Unidades{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}  
+	#Enero, #Febrero, #Marzo, #Abril, #Mayo, #Junio, #Julio, #Agosto, #Septiembre, #Octubre, #Noviembre, #Diciembre{
+		min-width: 7rem;
+		max-width: 7rem;
+		overflow: hidden;
+		padding: 10px;
+		border-collapse: collapse;
+	} 
+	#Número_de_plazas{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}   
+	#Nivel{
+		min-width: 8rem;
+		max-width: 8rem;
+		overflow: hidden;
+	}  
+	#Cargo_del_comisionado{
+		min-width: 12rem;
+		max-width: 12rem;
+		overflow: hidden;
+	}   
+	#Objeto_de_la_comisión{
+		min-width: 12rem;
+		max-width: 12rem;
+		overflow: hidden;
+	} 
+	#Días_de_comisión_anuales{
+		min-width: 12rem;
+		max-width: 12rem;
+		overflow: hidden;
+	}  
+	#Tarifa_diaria{
+		min-width: 12rem;
+		max-width: 12rem;
+		overflow: hidden;
+	} 
+	
+	thead {
+		background: #E6E6E6;
+		border-radius: 50px;
+	}
