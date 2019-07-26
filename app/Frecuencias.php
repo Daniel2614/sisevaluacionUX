@@ -9,8 +9,8 @@ class Frecuencias extends Model
      protected $table = 'frecuencias';
 
     protected $fillable = [
-    	'id'
-    	'frecuencia'
+    	'id',
+    	'frecuencia',
     	'puntaje'    	
     		];
 }

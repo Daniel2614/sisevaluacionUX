@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Docentes;
+use App\Frecuencias;
 
-class DocenteController extends Controller
+class FrecuenciasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-         $docentes = Docentes::all();
-
-        return view('docentes.index',['docentes'=>$docentes]);
+        $frecuencia = Frecuencias::all();
+        return view('frecuencia.index',['frecuencias'=>$frecuencia]);
     }
 
     /**
@@ -27,7 +26,6 @@ class DocenteController extends Controller
     public function create()
     {
         //
-        return view('dc.create');
     }
 
     /**
@@ -38,14 +36,7 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('hola');
-        $this->validate($request,
-            [ 'nombre'=>'required',
-              'apPaterno'=>'required', 
-              'apMaterno'=>'required']);
-        Docentes::create($request->all());
-        return redirect()->route('docentesdc')->with('success','Registro creado satisfactoriamente');
-  
+        //
     }
 
     /**
@@ -56,8 +47,7 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-         $docentes=Docentes::find($id);
-        return  view('Docentes.show',compact('docentes'));
+        //
     }
 
     /**
@@ -69,8 +59,6 @@ class DocenteController extends Controller
     public function edit($id)
     {
         //
-        $docentes=Docentes::find($id);
-        return view('docente.edit',compact('docente'));
     }
 
     /**
@@ -80,18 +68,9 @@ class DocenteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         //
-
-        $this->validate($request,
-            [ 'nombre'=>'required',
-              'apPaterno'=>'required', 
-              'apMaterno'=>'required']);
-
-        Docentes::find($request->id)->update($request->all());
-        return redirect()->route('docentesdc')->with('success','Registro actualizado satisfactoriamente');
- 
     }
 
     /**
@@ -102,8 +81,6 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-         Docentes::find($id)->delete();
-        return redirect()->route('Docentes.index')->with('success','Registro eliminado satisfactoriamente');
-   
+        //
     }
 }

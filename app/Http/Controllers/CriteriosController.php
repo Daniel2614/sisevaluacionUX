@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Docentes;
+use App\Criterios;
 
-class DocenteController extends Controller
+class CriteriosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-         $docentes = Docentes::all();
-
-        return view('docentes.index',['docentes'=>$docentes]);
+         $criterio = Criterios::all();
+        return view('criterios.index',['criterios'=>$criterio]);
     }
 
     /**
@@ -26,8 +25,7 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        //
-        return view('dc.create');
+         return view('c.create');
     }
 
     /**
@@ -38,14 +36,11 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('hola');
         $this->validate($request,
-            [ 'nombre'=>'required',
-              'apPaterno'=>'required', 
-              'apMaterno'=>'required']);
-        Docentes::create($request->all());
-        return redirect()->route('docentesdc')->with('success','Registro creado satisfactoriamente');
-  
+            [ 'categoria'=>'required',
+              'aspectoEvaluar'=>'required']);
+        Criterios::create($request->all());
+        return redirect()->route('criteriosc')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -56,8 +51,7 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-         $docentes=Docentes::find($id);
-        return  view('Docentes.show',compact('docentes'));
+        //
     }
 
     /**
@@ -68,9 +62,8 @@ class DocenteController extends Controller
      */
     public function edit($id)
     {
-        //
-        $docentes=Docentes::find($id);
-        return view('docente.edit',compact('docente'));
+        $criterio=Criterios::find($id);
+        return view('criterio.edit',compact('criterio'));
     }
 
     /**
@@ -82,16 +75,13 @@ class DocenteController extends Controller
      */
     public function update(Request $request)
     {
-        //
-
+         $id=$request->id;
         $this->validate($request,
-            [ 'nombre'=>'required',
-              'apPaterno'=>'required', 
-              'apMaterno'=>'required']);
-
-        Docentes::find($request->id)->update($request->all());
-        return redirect()->route('docentesdc')->with('success','Registro actualizado satisfactoriamente');
+            [ 'categoria'=>'required',
+              'aspectoEvaluar'=>'required']);
  
+        Criterios::find($id)->update($request->all());
+        return redirect()->route('criteriosc')->with('success','Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -102,8 +92,7 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-         Docentes::find($id)->delete();
-        return redirect()->route('Docentes.index')->with('success','Registro eliminado satisfactoriamente');
-   
+        Criterios::find($id)->delete();
+        return redirect()->route('criteriosc')->with('success','Registro eliminado satisfactoriamente');
     }
 }

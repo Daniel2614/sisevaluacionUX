@@ -9,8 +9,8 @@ class CatCarrera extends Model
     protected $table = 'catcarrera';
 
     protected $fillable = [
-    	'id'
-    	'nombreCarrera'
+    	'id',
+    	'nombreCarrera',
     	'clave'
     	
     		];

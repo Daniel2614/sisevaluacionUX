@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Docentes;
+use App\CatCarrera;
 
-class DocenteController extends Controller
+class CarreraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-         $docentes = Docentes::all();
-
-        return view('docentes.index',['docentes'=>$docentes]);
+         $carrera = CatCarrera::all();
+        return view('carrera.index',['carreras'=>$carrera]);
     }
 
     /**
@@ -27,7 +26,7 @@ class DocenteController extends Controller
     public function create()
     {
         //
-        return view('dc.create');
+        return view('cc.create');
     }
 
     /**
@@ -40,11 +39,10 @@ class DocenteController extends Controller
     {
         // dd('hola');
         $this->validate($request,
-            [ 'nombre'=>'required',
-              'apPaterno'=>'required', 
-              'apMaterno'=>'required']);
-        Docentes::create($request->all());
-        return redirect()->route('docentesdc')->with('success','Registro creado satisfactoriamente');
+            [ 'nombreCarrera'=>'required',
+              'clave'=>'required']);
+        CatCarrera::create($request->all());
+        return redirect()->route('carrerascc')->with('success','Registro creado satisfactoriamente');
   
     }
 
@@ -56,8 +54,8 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-         $docentes=Docentes::find($id);
-        return  view('Docentes.show',compact('docentes'));
+        //  $carreras=Docentes::find($id);
+        // return  view('Docentes.show',compact('carreras'));
     }
 
     /**
@@ -69,8 +67,8 @@ class DocenteController extends Controller
     public function edit($id)
     {
         //
-        $docentes=Docentes::find($id);
-        return view('docente.edit',compact('docente'));
+        $carreras=CatCarrera::find($id);
+        return view('carrera.edit',compact('carrera'));
     }
 
     /**
@@ -82,15 +80,15 @@ class DocenteController extends Controller
      */
     public function update(Request $request)
     {
+      
         //
-
+        $id=$request->id;
         $this->validate($request,
-            [ 'nombre'=>'required',
-              'apPaterno'=>'required', 
-              'apMaterno'=>'required']);
-
-        Docentes::find($request->id)->update($request->all());
-        return redirect()->route('docentesdc')->with('success','Registro actualizado satisfactoriamente');
+            [ 'nombreCarrera'=>'required',
+              'clave'=>'required']);
+ 
+        CatCarrera::find($id)->update($request->all());
+        return redirect()->route('carrerascc')->with('success','Registro actualizado satisfactoriamente');
  
     }
 
@@ -102,8 +100,8 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-         Docentes::find($id)->delete();
-        return redirect()->route('Docentes.index')->with('success','Registro eliminado satisfactoriamente');
+         CatCarrera::find($id)->delete();
+        return redirect()->route('carrerascc')->with('success','Registro eliminado satisfactoriamente');
    
     }
 }

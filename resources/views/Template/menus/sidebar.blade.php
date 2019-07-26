@@ -27,7 +27,19 @@
 		<nav class="mt-2">
 			<ul class="nav nav-pills nav-sidebar flex-column"  data-widget="treeview" role="menu" data-accordion="false">					
 				<li class="nav-item" >
-					<a  href="" class="nav-link" ><i class="nav-icon fas fa-chart-line"></i> <p>Evaluacion Docente</p></a>
+					<a  href="{{ route('docentesdc') }}" class="nav-link" ><i class="far fa-address-book"></i>  <p>Catalogo Docentes</p></a>
+				</li>
+				<li class="nav-item" >
+					<a  href="{{ route('carrerascc') }}" class="nav-link" ><i class="far fa-address-book"></i> <p>Catalogo Carreras</p></a>
+				</li>
+				<li class="nav-item" >
+					<a  href="{{ route('criteriosc') }}" class="nav-link" ><i class="far fa-address-book"></i> <p>Criterios de Evaluación</p></a>
+				</li>
+				<li class="nav-item" >
+					<a  href="{{ route('frecuenciasf') }}" class="nav-link" ><i class="fas fa-cogs"></i><p>Frecuencias y Puntajes</p></a>
+				</li>
+				<li class="nav-item" >
+					<a  href="" class="nav-link" ><i class="fas fa-atlas"></i> <p>Evaluacion Docente</p></a>
 				</li>
 				<li class="nav-item" >
 					<a  href="" class="nav-link" ><i class="nav-icon fas fa-file-excel"></i> <p>Reportes</p></a>

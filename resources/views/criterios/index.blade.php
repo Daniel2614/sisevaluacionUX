@@ -1,16 +1,16 @@
 @extends('template.main')
 
 @section('title')
-    Docentes
+    Criterios de Evaluacion
 @endsection
 @section('content')
 
   <div class="card">
     <div class="card-header ">
-      Tabla de Maestros
+      Tabla Categoria y Criterios
       <div style="float: right"> 
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#docenteCreate">
-  Añadir Maestro
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#criteriosCreate">
+  Añadir Criterios
 </button>
       </div>
     </div>
@@ -22,71 +22,68 @@
           <thead class="bg-warning">
           <tr>
             <td>ID</td>
-            <td>Nombre Completo</td>
-            <td>Primer Apellido</td>
-            <td>Segundo Apellido</td>
+            <td>Categoria</td>
+            <td>Aspecto a Evaluar</td>
             <td>Acciones</td>
           </tr>
         </thead>
-          @foreach ($docentes as $docente)
+          @foreach ($criterios as $criterio)
             <tr>
-              <td>{{$docente->id}}</td>
-              <td>{{$docente->nombre}}</td>
-              <td>{{$docente->apPaterno}}</td>
-              <td>{{$docente->apMaterno}}</td>
+              <td>{{$criterio->id}}</td>
+              <td>{{$criterio->categoria}}</td>
+              <td>{{$criterio->aspectoEvaluar}}</td>
               <td>
-               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#docenteEdit{{$docente->id}}">
+               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#criterioEdit{{$criterio->id}}">
                  Editar
                </button>
               </td>
             </tr>
-<div class="modal fade" id="docenteEdit{{$docente->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="criterioEdit{{$criterio->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Docente</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Criterio</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="table-container">
-            <form method="POST" action="{{ route('dc.update') }}"  role="form">
+            
+              <form method="POST" action="{{ route('c.update') }}"  role="form">
               {{ csrf_field() }}
               <input name="_method" type="hidden" value="POST">
-              <input name="id" type="hidden" value="{{$docente->id}}">
+              <input name="id" type="hidden" value="{{$criterio->id}}">
               <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <input type="text" name="nombre" id="nombre" class="form-control input-sm" value="{{$docente->nombre}}">
+                    <input type="text" name="categoria" id="nombre" class="form-control input-sm" value="{{$criterio->categoria}}">
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <input type="text" name="apPaterno" id="apPaterno" class="form-control input-sm" value="{{$docente->apPaterno}}">
+                    <input type="text" name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" value="{{$criterio->aspectoEvaluar}}">
                   </div>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <div class="form-group">
-                    <input type="text" name="apMaterno" id="apMaterno" class="form-control input-sm" value="{{$docente->apMaterno}}">
-                  </div>
+               
                 </div>
               </div>  
               <div class="row">
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <input type="submit"  value="Actualizar" class="btn btn-success btn-block">
-                  <a href="{{ route('docentesdc') }}" class="btn btn-info btn-block" >Atrás</a>
+                  <a href="{{ route('criteriosc') }}" class="btn btn-info btn-block" >Atrás</a>
                 </div>  
 
               </div>
-            </form>
+            </form> 
+            
           </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
+      <div class="modal-footer">
+        
+      </div>
+     
     </div>
   </div>
 </div>
@@ -96,33 +93,29 @@
     </div>
   </div>
 
-<div class="modal fade" id="docenteCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="criteriosCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir Docente</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Criterio</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="table-container">
-            <form method="POST" action="{{route('dc.store')}}" >
+            <form method="POST" action="{{route('c.store')}}" >
               {{ csrf_field() }}
               <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                    <input type="text" name="nombre" id="nombre" class="form-control input-sm" placeholder="Nombre del docente">
+                    <input type="text" name="categoria" id="categoria" class="form-control input-sm" placeholder="Categoria">
                   </div>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                    <input type="text" name="apPaterno" id="apPaterno" class="form-control input-sm" placeholder="Primer Apellido">
-                  </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <div class="form-group">
-                    <input type="text" name="apMaterno" id="apMaterno" class="form-control input-sm" placeholder="Segundo Apellido">
+                   <!--  <input type="text" name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" placeholder="Aspectos a Evaluar"> -->
+                    <textarea name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" placeholder="Aspectos a Evaluar" rows="8"></textarea>
                   </div>
                 </div>
               </div>
