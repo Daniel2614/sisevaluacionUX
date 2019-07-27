@@ -27,6 +27,7 @@ Route::get('/', function () {
     Route::get('/catalogos/edit/{id}','DocenteController@edit')->name('dc.edit');
     Route::post('/catalogos/updateCT','DocenteController@update')->name('dc.update');
     Route::get('/docenteslista', 'DocenteController@index')->name('docentesdc');
+    Route::post('/importar', 'DocenteController@import')->name('importar');
 // rutas de los criterios de evaluacion de la Universidad de Xalapa
     Route::get('/criterios/create','CriteriosController@create')->name('c.create');
     Route::post('/criterios/storeC/','CriteriosController@store')->name('c.store');
@@ -40,6 +41,10 @@ Route::get('/', function () {
     Route::post('/catalogosfrecuencias/updateF','FrecuenciasController@update')->name('f.update');
     Route::get('/frecuenciaslista', 'FrecuenciasController@index')->name('frecuenciasf');
 
-  
+
+    Route::get('/evaluacion', 'EvaluacionController@index')->name('evaluacion');
+
+
+
 
     

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Docentes;
-
+use App\CargarDocentes;
+use Maatwebsite\Excel\Facades\Excel;
 class DocenteController extends Controller
 {
     /**
@@ -105,5 +106,17 @@ class DocenteController extends Controller
          Docentes::find($id)->delete();
         return redirect()->route('Docentes.index')->with('success','Registro eliminado satisfactoriamente');
    
+    }
+    public function import(Request $request) 
+    {
+       
+        Excel::import(new CargarDocentes, $request->excel);
+        
+      
+
+
+
+        
+        return redirect('/')->with('success', 'All good!');
     }
 }

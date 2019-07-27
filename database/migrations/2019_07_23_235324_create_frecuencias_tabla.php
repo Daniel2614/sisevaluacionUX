@@ -16,7 +16,7 @@ class CreateFrecuenciasTabla extends Migration
         Schema::create('frecuencias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('frecuencia');
-            $table->string('puntaje');
+            $table->integer('puntaje');
             $table->timestamps();
         });
     }

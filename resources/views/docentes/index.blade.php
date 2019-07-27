@@ -12,6 +12,9 @@
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#docenteCreate">
   Añadir Maestro
 </button>
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#importar">
+  Subir Excel
+</button>
       </div>
     </div>
     <div class="card-body">
@@ -137,6 +140,29 @@
               </form>
             </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="importar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cargar Docentes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ route('importar') }}"  role="form" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <input name="_method" type="hidden" value="POST">
+        <input type="file" name="excel">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Cargar</button>
+      </div>
+    </form>
     </div>
   </div>
 </div>

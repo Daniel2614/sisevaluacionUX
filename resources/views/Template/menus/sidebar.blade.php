@@ -39,8 +39,14 @@
 					<a  href="{{ route('frecuenciasf') }}" class="nav-link" ><i class="fas fa-cogs"></i><p>Frecuencias y Puntajes</p></a>
 				</li>
 				<li class="nav-item" >
-					<a  href="" class="nav-link" ><i class="fas fa-atlas"></i> <p>Evaluacion Docente</p></a>
+					<a  href="{{ route('evaluacion') }}" class="nav-link" ><i class="fas fa-atlas"></i><p>Evaluacion Docente</p></a>
 				</li>
+				<li class="nav-item" >
+					<a  href="" class="nav-link" ><i class="far fa-arrow-alt-circle-up"></i><p>Cargar Docentes</p></a>
+				</li>
+				<!-- <li class="nav-item" >
+					<a  href="" class="nav-link" ><i class="fas fa-atlas"></i> <p>Evaluacion Docente</p></a>
+				</li> -->
 				<li class="nav-item" >
 					<a  href="" class="nav-link" ><i class="nav-icon fas fa-file-excel"></i> <p>Reportes</p></a>
 				</li>

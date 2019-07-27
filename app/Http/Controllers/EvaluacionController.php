@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Frecuencias;
+use App\Evaluacion;
 
-class FrecuenciasController extends Controller
+class EvaluacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class FrecuenciasController extends Controller
      */
     public function index()
     {
-        $frecuencia = Frecuencias::all();
-        return view('frecuencia.index',['frecuencias'=>$frecuencia]);
+        // $evaluacion = Evaluacion::all();
+
+        return view('evaluacion.index');
     }
 
     /**
@@ -25,7 +26,7 @@ class FrecuenciasController extends Controller
      */
     public function create()
     {
-         return view('f.create');
+        //
     }
 
     /**
@@ -36,12 +37,7 @@ class FrecuenciasController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('hola');
-        $this->validate($request,
-            [ 'frecuencia'=>'required',
-              'puntaje'=>'required']);
-        Frecuencias::create($request->all());
-        return redirect()->route('frecuenciasf')->with('success','Registro creado satisfactoriamente');
+        //
     }
 
     /**
@@ -63,8 +59,7 @@ class FrecuenciasController extends Controller
      */
     public function edit($id)
     {
-        $frecuencias=Frecuencias::find($id);
-        return view('frecuencia.edit',compact('frecuencia'));
+        //
     }
 
     /**
@@ -74,15 +69,9 @@ class FrecuenciasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-         $id=$request->id;
-        $this->validate($request,
-            [ 'frecuencia'=>'required',
-              'puntaje'=>'required']);
- 
-        Frecuencias::find($id)->update($request->all());
-        return redirect()->route('frecuenciasf')->with('success','Registro actualizado satisfactoriamente');
+        //
     }
 
     /**
@@ -93,7 +82,6 @@ class FrecuenciasController extends Controller
      */
     public function destroy($id)
     {
-          Frecuencias::find($id)->delete();
-        return redirect()->route('frecuenciasf')->with('success','Registro eliminado satisfactoriamente');
+        //
     }
 }

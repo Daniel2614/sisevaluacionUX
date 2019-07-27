@@ -9,8 +9,8 @@
     <div class="card-header ">
       Tabla Categoria y Criterios
       <div style="float: right"> 
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#criteriosCreate">
-  Añadir Criterios
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#frecuenciasCreate">
+  Añadir Frecuencia
 </button>
       </div>
     </div>
@@ -22,27 +22,27 @@
           <thead class="bg-warning">
           <tr>
             <td>ID</td>
-            <td>Categoria</td>
-            <td>Aspecto a Evaluar</td>
+            <td>Frecuencia</td>
+            <td>Puntaje</td>
             <td>Acciones</td>
           </tr>
         </thead>
-          @foreach ($criterios as $criterio)
+          @foreach ($frecuencias as $frecuencia)
             <tr>
-              <td>{{$criterio->id}}</td>
-              <td>{{$criterio->categoria}}</td>
-              <td>{{$criterio->aspectoEvaluar}}</td>
+              <td>{{$frecuencia->id}}</td>
+              <td>{{$frecuencia->frecuencia}}</td>
+              <td>{{$frecuencia->puntaje}}</td>
               <td>
-               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#criterioEdit{{$criterio->id}}">
+               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#frecuenciasEdit{{$frecuencia->id}}">
                  Editar
                </button>
               </td>
             </tr>
-<div class="modal fade" id="criterioEdit{{$criterio->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="frecuenciasEdit{{$frecuencia->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Criterio</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Frecuencia</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -50,19 +50,19 @@
       <div class="modal-body">
         <div class="table-container">
             
-              <form method="POST" action="{{ route('c.update') }}"  role="form">
+              <form method="POST" action="{{ route('f.update') }}"  role="form">
               {{ csrf_field() }}
               <input name="_method" type="hidden" value="POST">
-              <input name="id" type="hidden" value="{{$criterio->id}}">
+              <input name="id" type="hidden" value="{{$frecuencia->id}}">
               <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <input type="text" name="categoria" id="nombre" class="form-control input-sm" value="{{$criterio->categoria}}">
+                    <input type="text" name="frecuencia" id="nombre" class="form-control input-sm" value="{{$frecuencia->frecuencia}}">
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
-                    <input type="text" name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" value="{{$criterio->aspectoEvaluar}}">
+                    <input type="text" name="puntaje" id="puntaje" class="form-control input-sm" value="{{$frecuencia->puntaje}}">
                   </div>
                 </div>
                
@@ -72,7 +72,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <input type="submit"  value="Actualizar" class="btn btn-success btn-block">
-                  <a href="{{ route('criteriosc') }}" class="btn btn-info btn-block" >Atrás</a>
+                  <a href="{{ route('frecuenciasf') }}" class="btn btn-info btn-block" >Atrás</a>
                 </div>  
 
               </div>
@@ -93,29 +93,29 @@
     </div>
   </div>
 
-<div class="modal fade" id="criteriosCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="frecuenciasCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Añadir Criterio</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Frecuencia</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="table-container">
-            <form method="POST" action="{{route('c.store')}}" >
+            <form method="POST" action="{{route('f.store')}}" >
               {{ csrf_field() }}
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                    <input type="text" name="categoria" id="categoria" class="form-control input-sm" placeholder="Categoria">
+                    <input type="text" name="frecuencia" id="frecuencia" class="form-control input-sm" placeholder="Frecuencia">
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
-                   <!--  <input type="text" name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" placeholder="Aspectos a Evaluar"> -->
-                    <textarea name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" placeholder="Aspectos a Evaluar" rows="8"></textarea>
+                    <input type="number" name="puntaje" id="puntaje" class="form-control input-sm" placeholder="Puntaje">
+                    <!-- <textarea name="aspectoEvaluar" id="aspectoEvaluar" class="form-control input-sm" placeholder="Aspectos a Evaluar" rows="8"></textarea> -->
                   </div>
                 </div>
               </div>
