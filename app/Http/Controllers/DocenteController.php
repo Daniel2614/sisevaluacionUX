@@ -13,6 +13,14 @@ class DocenteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function listamaestros()
+    {
+         $docentes = Docentes::all();
+
+        return $docentes;
+    }
+
     public function index()
     {
          $docentes = Docentes::all();

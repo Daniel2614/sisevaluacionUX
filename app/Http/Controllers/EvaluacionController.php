@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Evaluacion;
+use App\Docentes;
+use App\CatCarrera;
+use App\Criterios;
+use App\Frecuencias;
 
 class EvaluacionController extends Controller
 {
@@ -15,8 +19,12 @@ class EvaluacionController extends Controller
     public function index()
     {
         // $evaluacion = Evaluacion::all();
+        // $maestros=Docentes::all();
+        // dd($maestros->toArray());
+         $docentes = Docentes::all();
+         $carreras = CatCarrera::all();
 
-        return view('evaluacion.index');
+        return view('evaluacion.index',['docentes'=>$docentes,'carreras'=>$carreras]);
     }
 
     /**
