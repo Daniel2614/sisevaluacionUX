@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Docentes;
 use App\CargarDocentes;
+use App\CatCarrera;
 use Maatwebsite\Excel\Facades\Excel;
 class DocenteController extends Controller
 {
@@ -24,8 +25,9 @@ class DocenteController extends Controller
     public function index()
     {
          $docentes = Docentes::all();
+         $carreras = CatCarrera::all();
 
-        return view('docentes.index',['docentes'=>$docentes]);
+        return view('docentes.index',['docentes'=>$docentes, 'carreras'=>$carreras]);
     }
 
     /**
@@ -48,10 +50,18 @@ class DocenteController extends Controller
     public function store(Request $request)
     {
         // dd('hola');
+
+        $carreras=$request->carrera;
+
         $this->validate($request,
             [ 'nombre'=>'required',
               'apPaterno'=>'required', 
               'apMaterno'=>'required']);
+        $docentes=Docentes::find($request->id);
+        foreach ($carreras as $carrera) {
+
+           $docentes->carrera()->attach($carrera);
+        }
         Docentes::create($request->all());
         return redirect()->route('docentesdc')->with('success','Registro creado satisfactoriamente');
   
@@ -93,12 +103,19 @@ class DocenteController extends Controller
     {
         //
 
+        $carreras=$request->carrera;
+        
         $this->validate($request,
             [ 'nombre'=>'required',
               'apPaterno'=>'required', 
               'apMaterno'=>'required']);
+        $docentes=Docentes::find($request->id);
+        foreach ($carreras as $carrera) {
 
-        Docentes::find($request->id)->update($request->all());
+           $docentes->carrera()->attach($carrera);
+        }
+        $docentes->update($request->all());
+
         return redirect()->route('docentesdc')->with('success','Registro actualizado satisfactoriamente');
  
     }

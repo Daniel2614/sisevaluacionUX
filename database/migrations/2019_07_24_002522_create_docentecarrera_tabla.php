@@ -15,6 +15,12 @@ class CreateDocentecarreraTabla extends Migration
     {
         Schema::create('docentecarrera', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('idDocente')->unsigned();
+            $table->foreign('idDocente')->references('id')->on('docentes');
+            $table->integer('idCarrera')->unsigned();
+            $table->foreign('idCarrera')->references('id')->on('catcarrera');
+
+            
             $table->timestamps();
         });
     }
