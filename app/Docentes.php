@@ -30,13 +30,11 @@ class Docentes extends Model
         $this->attributes['nombre'] = mb_strtoupper($value, 'UTF-8');
     }
 
-	public function carrera()
+	public function carreras()
   {
-      return $this->belongsToMany('App\CatCarrera', 'docentecarrera','idDocente','idCarrera')->withTimestamps();
+      return $this->belongsToMany('App\CatCarrera', 'docentecarrera','idDocente', 'idCarrera');
   }
 
-  public function docentecarrera()
-  {
-      return $this->hasMany('App\DocenteCarrera','idDocente');
-  }
+
+
 }

@@ -9,8 +9,8 @@ class DocenteCarrera extends Model
      protected $table = 'docentecarrera';
 
     protected $fillable = [
-    	'id'
-    	'idDocente'
+    	'id',
+    	'idDocente',
     	'idCarrera'
     		];
 }

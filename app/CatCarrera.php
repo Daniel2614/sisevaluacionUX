@@ -14,4 +14,11 @@ class CatCarrera extends Model
     	'clave'
     	
     		];
+
+
+
+  public function docentes()
+  {
+      return $this->belongsToMany('App\Docentes', 'docentecarrera', 'idCarrera', 'idDocente');
+  }
 }
