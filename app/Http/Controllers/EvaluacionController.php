@@ -23,8 +23,9 @@ class EvaluacionController extends Controller
         // dd($maestros->toArray());
          $docentes = Docentes::all();
          $carreras = CatCarrera::all();
+         $criterios = Criterios::all();
 
-        return view('evaluacion.index',['docentes'=>$docentes,'carreras'=>$carreras]);
+        return view('evaluacion.index',['docentes'=>$docentes,'carreras'=>$carreras,'criterios'=>$criterios]);
     }
 
     /**
