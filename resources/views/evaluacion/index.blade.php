@@ -37,11 +37,11 @@
 	 <div class="card-header ">
       Desempeño Administrativo
     </div>
- <div class="card-body">
+ <div class="card-body ">
  <div class="row">
  	<div class="col-12">
- 		<table class="table">
- 			<thead class="table table-bordered">
+ 		<table class="table table-bordered table table-striped">
+ 			<thead class="table">
  				<tr class="table-secondary">
  				<th>Categoría</th>
  				<th>Aspecto a evaluar</th>

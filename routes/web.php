@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return redirect('/docenteslista');
+    return redirect('/evaluacion');
 });
 // rutas de las carreras existentes dentro de la Universidad de Xalapa
  	Route::get('/carreras/create','CarreraController@create')->name('cc.create');

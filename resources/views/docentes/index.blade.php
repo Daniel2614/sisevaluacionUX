@@ -30,18 +30,18 @@
             <td>Segundo Apellido</td> -->
             <td>Carrera</td>
             <td>Acciones</td>
-          </tr>
+            </tr>
         </thead>
           @foreach ($docentes as $docente)
             <tr>
               <td>{{$docente->id}}</td>
               <td>{{$docente->nombre}}</td>
-               <td>{{$docente->apPaterno}}</td>
-              <td>{{$docente->apMaterno}}</td> 
+              <!--  <td>{{$docente->apPaterno}}</td>
+              <td>{{$docente->apMaterno}}</td> --> 
               <td>
               {{-- @foreach($docente->carrera as $materia)
               <li>{{$materia->nombreCarrera}}</li> 
-              @endforeach</td>--}}
+              @endforeach--}}</td>
               <td>
                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#docenteEdit{{$docente->id}}">
                  Editar
@@ -64,12 +64,12 @@
               <input name="_method" type="hidden" value="POST">
               <input name="id" type="hidden" value="{{$docente->id}}">
               <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-6 col-sm-6 col-md-12">
                   <div class="form-group">
                     <input type="text" name="nombre" id="nombre" class="form-control input-sm" value="{{$docente->nombre}}">
                   </div>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
+               <!--  <div class="col-xs-6 col-sm-6 col-md-6">
                   <div class="form-group">
                     <input type="text" name="apPaterno" id="apPaterno" class="form-control input-sm" value="{{$docente->apPaterno}}">
                   </div>
@@ -78,11 +78,11 @@
                   <div class="form-group">
                     <input type="text" name="apMaterno" id="apMaterno" class="form-control input-sm" value="{{$docente->apMaterno}}">
                   </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                </div> -->
+                <div class="col-xs-6 col-sm-6 col-md-12">
                   <div class="form-group">
                     <!-- <input type="text" name="apMaterno" id="apMaterno" class="form-control input-sm" value="{{$docente->apMaterno}}"> -->
-                    <select class="form-control select2" name="carrera[]" multiple >
+                    <select class="form-control select2" name="carrera[]" multiple>
                     @foreach($carreras as $carrera)
                     <option value="{{$carrera->id}}"> {{$carrera->nombreCarrera}}
                     </option>
