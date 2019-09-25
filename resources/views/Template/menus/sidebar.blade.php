@@ -1,6 +1,6 @@
 <aside class="main-sidebar elevation-4 barra-izquierda collapsado sidebar-open" id="barra" style="" >
 	<!-- Brand Logo -->
-	<a href="{{ url('login') }}" class="brand-link" style="background: #5e2129 ">
+	<a href="{{ url('evaluacion') }}" class="brand-link" style="background: #5e2129 ">
 		<img src="{{ asset('img/logoux.png') }}" alt="AdminLTE Logo" class=""
 		style="opacity: .8;width: 60px">
 		<span class="brand-text font-weight-light">Universidad de Xalapa </span>

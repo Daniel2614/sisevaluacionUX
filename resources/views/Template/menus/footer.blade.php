@@ -4,5 +4,5 @@
 		Anything you want
 	</div>--}}
 	<!-- Default to the left -->
-	<strong>Copyright © 2019 Fiscalía General del Estado de Veracruz, DCIIT. |</strong>Avisos de Privacidad.
+	<strong>Copyright © 2019 JOSÉ DANIEL PÉREZ REYES TESIS |</strong>Avisos de Privacidad.
 </footer>

@@ -11,7 +11,8 @@ class CargarDocentes implements ToModel
 	public function model(array $row)
     {
         return new Docentes([
-           'nombre'     => $row[1],
+        	'carrera'     => $row[0],
+           'nombre'     => $row[1]
            
         ]);
     }
